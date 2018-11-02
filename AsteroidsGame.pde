@@ -1,5 +1,5 @@
 Spaceship bobbu = new Spaceship();
-Star[] kirby = new Star[100];
+Star[] kirby = new Star[150];
 
 public void setup() {
   size(700, 700);
@@ -23,12 +23,13 @@ public  void keyPressed() {
     }
   if (key == CODED) {
     if (keyCode == UP) {
-      bobbu.accelerate(0.5);
+      bobbu.accelerate(.3);
     }
   }
 
   if (key == CODED) {
     if (keyCode == DOWN) {
+    	bobbu.accelerate(-.5);
 
     }
   }
