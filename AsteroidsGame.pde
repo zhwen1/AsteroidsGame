@@ -1,6 +1,10 @@
 Spaceship bobbu = new Spaceship();
 Star[] kirby = new Star[150];
 ArrayList<Asteroid> rock = new ArrayList<Asteroid>();
+boolean keyA = false;
+boolean keyS = false;
+boolean keyD = false;
+boolean keyW = false; 
 
 public void setup() {
   size(700, 700);
@@ -26,32 +30,53 @@ public void draw() {
     }
     for (int i = 0; i <kirby.length; i++) {
       kirby[i].show();
-    }
   }
 
-  public  void keyPressed() {
+    if(keyW == true){
+   	bobbu.accelerate(.2);
+    }
+    if(keyS == true){
+    bobbu.accelerate(-.3);
+	}
+	if(keyA == true){
+     bobbu.turn(-6);
+	}
+	if(keyD == true){
+    bobbu.turn(6);
+	}  
+} 
+
+public void keyPressed() {
+  if (key == ' ') {
+      bobbu.hyperspace();
+  }
+  if (key == 'w') {
+        keyW = true;
+  }
+    if (key == 's') {
+        keyS = true;
+  }
+    if (key == 'a') {
+      	keyA = true;
+  }
+    if (key == 'd') {
+        keyD = true;
+  }
+}
+ public void keyReleased(){
     if (key == ' ') {
       bobbu.hyperspace();
     }
-    if (key == CODED) {
-      if (keyCode == UP) {
-        bobbu.accelerate(.3);
-      }
+    if (key == 'w') {
+        keyW = false;
     }
-
-    if (key == CODED) {
-      if (keyCode == DOWN) {
-        bobbu.accelerate(-.5);
-      }
+    if (key == 's') {
+        keyS = false;
     }
-    if (key == CODED) {
-      if (keyCode == LEFT) {
-        bobbu.turn(-6);
-      }
+    if (key == 'a') {
+      	keyA = false;
     }
-    if (key == CODED) {
-      if (keyCode == RIGHT) {
-        bobbu.turn(6);
-      }
+    if (key == 'd') {
+        keyD = false;
     }
   }
