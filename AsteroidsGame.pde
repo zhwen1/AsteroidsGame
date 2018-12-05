@@ -5,7 +5,7 @@ boolean keyA = false;
 boolean keyS = false;
 boolean keyD = false;
 boolean keyW = false; 
-
+Bullet gn = new Bullet(bobbu);
 public void setup() {
   size(700, 700);
   for (int i=0; i<kirby.length; i++) {
@@ -20,11 +20,13 @@ public void draw() {
   background(0);
   bobbu.show();
   bobbu.move();
+  gn.show();
+  gn.move();
   for (int i=0; i<rock.size(); i++) {
     rock.get(i).show();
     rock.get(i).move();
     float d = dist(bobbu.getX(), bobbu.getY(), rock.get(i).getX(), rock.get(i).getY());
-    if (d<10) {
+    if (d<15) {
       rock.remove(i);
     }
     }
